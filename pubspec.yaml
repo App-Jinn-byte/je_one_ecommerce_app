@@ -50,6 +50,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   percent_indicator: ^4.2.3
   flutter_launcher_icons: ^0.13.1
+  flutter_otp_text_field: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -79,7 +80,10 @@ flutter:
     - assets/fonts/
     - assets/fonts/nunito/
     - assets/fonts/raleway/
+    - assets/background/
     - assets/images/
+    - assets/images/profile.png
+    - assets/images/lock.png
     - assets/icon/
 
 # flutter_native_splash-development.yaml

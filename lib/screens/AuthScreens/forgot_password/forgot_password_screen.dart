@@ -4,7 +4,8 @@ import 'package:je_one_ecommerce_app/main.dart';
 import 'package:je_one_ecommerce_app/res/assets.dart';
 import 'package:je_one_ecommerce_app/res/colors.dart';
 import 'package:je_one_ecommerce_app/res/res.dart';
-import 'package:je_one_ecommerce_app/screens/AuthScreens/create_new_password/create_new_password_screen.dart';
+import 'package:je_one_ecommerce_app/screens/AuthScreens/login_screen/widgets/back_icon.dart';
+import 'package:je_one_ecommerce_app/screens/AuthScreens/otp_verification/otp_verification_screen.dart';
 import 'package:je_one_ecommerce_app/widgets/common_widgets.dart';
 import 'package:je_one_ecommerce_app/widgets/my_text.dart';
 
@@ -23,26 +24,36 @@ class ForgotPasswordScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.08),
           height: sizes?.height,
           width: sizes?.width,
-          decoration: BoxDecoration(
-            color: AppColors.appBackground,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Assets.backgroundImage), // Replace with your own image path
+              fit: BoxFit.cover,
+            ),
           ),
           child: Column(
             children: [
-              SizedBox(height: sizes!.height*0.03,),
-              Image.asset(Assets.appColorLogo),
-              SizedBox(height: sizes!.height*0.03,),
+              SizedBox(height: sizes!.height*0.05,),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: CircularWidget()),
+              SizedBox(height: sizes!.height*0.07,),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: MyText.XXL("Forgot Password", arialFont:true, shadow: false,color: AppColors.blackTextColor,bold: true,)),
-              SizedBox(height: sizes!.height*0.017,),
+                  child: MyText.XXL("Forgot Password", arialFont:false, shadow: false,color: AppColors.blackTextColor,bold: true,)),
+              SizedBox(height: sizes!.height*0.02,),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: MyText.M("Enter Email address or Phone number", arialFont:true, shadow: false, color: AppColors.darkGreyTextColor,)),
-              SizedBox(height: sizes!.height*0.012,),
-
-              CommonWidgets.customTextField( hintText: 'Enter Your Email', controller: emailOrNumberController, keyboardType: TextInputType.name),
-               SizedBox(height: sizes!.height*0.03,),
-              CommonWidgets.mainButton("Send", onPress: (){Navigator.pushReplacement(context, SlideRightRoute(page: CreateNewPasswordScreen()));}, width: sizes!.width, height: sizes!.height*0.07,),
+                  child: MyText.M("Please enter email or username", arialFont:false, shadow: false, color: AppColors.darkGreyTextColor,)), SizedBox(height: sizes!.height*0.012,),
+              SizedBox(
+                height: sizes!.height * 0.02,
+              ),
+              CommonWidgets.customTextField(
+                  prefixIconPath: Assets.profileIcon,
+                  height:sizes!.height * 0.07,
+                  textInputAction: TextInputAction.next,
+                  hintText: 'Jhondeo@email.com', keyboardType: TextInputType.name),
+              SizedBox(height: sizes!.height*0.03,),
+              CommonWidgets.mainButton("Next", onPress: (){Navigator.pushReplacement(context, SlideRightRoute(page: OtpVerificationScreen()));}, width: sizes!.width, height: sizes!.height*0.07,),
 
             ],
           ),

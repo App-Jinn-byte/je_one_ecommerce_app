@@ -6,6 +6,8 @@ import 'package:je_one_ecommerce_app/res/assets.dart';
 import 'package:je_one_ecommerce_app/res/colors.dart';
 import 'package:je_one_ecommerce_app/res/res.dart';
 import 'package:je_one_ecommerce_app/screens/AuthScreens/login_screen/login.dart';
+import 'package:je_one_ecommerce_app/screens/AuthScreens/login_screen/widgets/back_icon.dart';
+import 'package:je_one_ecommerce_app/screens/AuthScreens/otp_verification/otp_verification_screen.dart';
 import 'package:je_one_ecommerce_app/widgets/common_widgets.dart';
 import 'package:je_one_ecommerce_app/widgets/my_text.dart';
 
@@ -25,21 +27,34 @@ class PasswordChangedScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.08),
           height: sizes?.height,
           width: sizes?.width,
-          decoration: BoxDecoration(
-            color: AppColors.appBackground,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Assets.backgroundImage), // Replace with your own image path
+              fit: BoxFit.cover,
+            ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(Assets.checkMark, height: sizes!.height*0.2, width: sizes!.height*0.2,),
+              SizedBox(height: sizes!.height*0.05,),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: CircularWidget()),
+              SizedBox(height: sizes!.height*0.07,),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: MyText.XXL("Password Changed", arialFont:false, shadow: false,color: AppColors.blackTextColor,bold: true,)),
               SizedBox(height: sizes!.height*0.02,),
-              MyText.XXL("Password Change!", arialFont:true, shadow: false,color: AppColors.blackTextColor,bold: true,),
-              SizedBox(height: sizes!.height*0.02,),
-              MyText.M("Your Password Has Been Change Successfully", arialFont:true, shadow: false, color: AppColors.darkBlueText,maxLines: 2,),
-              SizedBox(height: sizes!.height*0.03,),
-              CommonWidgets.mainButton("Log-in", onPress: (){
-                Navigator.pushReplacement(context, SlideRightRoute(page: LoginScreen()));
-              }, width: sizes!.width, height: sizes!.height*0.07,),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: MyText.M("Your password has been changed successfully", maxLines:2,arialFont:false, shadow: false, color: AppColors.darkGreyTextColor,textAlign: TextAlign.start,)), SizedBox(height: sizes!.height*0.012,),
+              SizedBox(
+                height: sizes!.height * 0.04,
+              ),
+              Image.asset(Assets.lockImage, height: sizes!.height*0.15, width: sizes!.height*0.15,),
+              SizedBox(height: sizes!.height*0.05,),
+              CommonWidgets.mainButton("Login", onPress: (){Navigator.pushReplacement(context, SlideRightRoute(page: OtpVerificationScreen()));}, width: sizes!.width, height: sizes!.height*0.07,),
+
             ],
           ),
         ),

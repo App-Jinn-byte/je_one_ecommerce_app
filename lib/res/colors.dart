@@ -14,10 +14,10 @@ Map<int, Color> colorCodes = {
 };
 
 class AppColors {
-  static final appTheme = Color.fromRGBO(120, 149, 64, 1);
+  static final appTheme = Color.fromRGBO(0, 122, 255, 1);
   static final appBackground = Color.fromRGBO(252, 252, 252, 1);
   static final dividerColor = Color.fromRGBO(203, 203, 203, 1);
-  static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
+  static final blackTextColor = Color.fromRGBO(76, 76, 76, 1);
   static final textFieldBorderColor = Color.fromRGBO(226, 226, 226, 1);
   static final hintTextColor = Color.fromRGBO(181, 181, 181, 1);
   static final lightGreyColor = Color.fromRGBO(245, 245, 245, 1);
@@ -59,13 +59,14 @@ class AppColors {
   static const admintxtColor = Color.fromRGBO(49, 49, 49, 1);
   static final borderColor = Color.fromRGBO(0, 0, 0, 0.08);
   static final borderGreyColor = Color.fromRGBO(240, 240, 240, 1);
-  static final greyTextColor = Color.fromRGBO(252, 252, 252, 0.7);
-  static final darkGreyTextColor = Color.fromRGBO(124, 124, 124, 1);
+  static final greyTextColor = Color.fromRGBO(134, 134, 134, 1);
+  static final darkGreyTextColor = Color.fromRGBO(152, 152, 152, 1);
   static final darkBlueText = Color.fromRGBO(40, 43, 53, 1);
   static final blueBorderColor = Color.fromRGBO(0, 63, 154, 1);
   static const divColor = Color.fromRGBO(0, 63, 154, 1);
   static const dotColor = Color.fromRGBO(0, 0, 0, 0.3);
   static const nameColor = Color.fromRGBO(35, 40, 48, 1);
+  static const blackColorGetStartedScreenText = Color.fromRGBO(51, 51, 51, 1);
 
   // shadow colors
   static const cardShadow = Color.fromRGBO(0, 0, 0, 0.03);

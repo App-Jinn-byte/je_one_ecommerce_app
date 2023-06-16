@@ -21,10 +21,21 @@
   static const String robotoRegular = "Roboto-Regular";
   static const String nunitoRegular = "Nunito-Regular";
 
-  // images
-  static const String onboardingBg = "assets/images/onboarding_bg.png";
-  static const String onboardingBg = "assets/images/onboarding_bg.png";
-  static const String splash1Image = "assets/png/logo_splash1.png";
+  // icons
+  static const String profileIcon = "assets/images/profile.png";
+  static const String lockIcon = "assets/images/lock.png";
+  static const String address = "assets/images/address.png";
+  static const String location = "assets/images/location.png";
+
+  //image
+  static const String lockImage = "assets/images/lockImage.png";
+  static const String getStartedScreenMainImage = "assets/images/get_started_screen_main_image.png";
+
+  //background image
+  static const String backgroundImage = "assets/background/background_image.png";
+
+
+
 
   // icons
   static const String appLogo = "assets/images/logo.png";
@@ -169,7 +180,6 @@
   static const String logoutIcon = "assets/png/ic_logout.png";
   static const String appBarImage = "assets/png/app_bar_image.png";
   static const String addItem = "assets/png/add_item.png";
-  static const String backgroundImage = "assets/png/background_image.png";
   static const String insuranceImage = "assets/png/insurance.png";
   static const String licenseImage = "assets/png/license_image.png";
 }

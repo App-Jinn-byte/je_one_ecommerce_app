@@ -27,8 +27,11 @@ class LoginScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: sizes!.width * 0.08),
           height: sizes?.height,
           width: sizes?.width,
-          decoration: BoxDecoration(
-            color: AppColors.appBackground,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Assets.backgroundImage), // Replace with your own image path
+              fit: BoxFit.cover,
+            ),
           ),
           child: Column(
             children: [
@@ -38,7 +41,6 @@ class LoginScreen extends StatelessWidget {
               Align(
                   alignment: Alignment.topLeft,
                   child: CircularWidget()),
-              // Image.asset(Assets.appColorLogo),
               SizedBox(
                 height: sizes!.height * 0.07,
               ),
@@ -66,26 +68,45 @@ class LoginScreen extends StatelessWidget {
                 height: sizes!.height * 0.05,
               ),
               CommonWidgets.customTextField(
+                  prefixIconPath: Assets.profileIcon,
+                  height:sizes!.height * 0.07,
                   hintText: 'Username',
                   controller: emailOrNumberController,
                   keyboardType: TextInputType.name),
               SizedBox(
-                height: sizes!.height * 0.05,
+                height: sizes!.height * 0.03,
               ),
               CommonWidgets.passwordTextField(
+                  height:sizes!.height * 0.07,
                   hintText: 'Password',
                   controller: emailOrNumberController,
                   keyboardType: TextInputType.name,
                   onClick: () {}),
+              SizedBox(
+                height: sizes!.height * 0.02,
+              ),
               Align(
                   alignment: Alignment.centerRight,
-                  child: CommonWidgets.mainTextButton("Forgot Password?",
-                      onPress: () {
-                    Navigator.pushReplacement(
-                        context, SlideRightRoute(page: ForgotPasswordScreen()));
-                  })),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                        Icon(Icons.check_circle, color: AppColors.appTheme,size: 18.0,),
+                        CommonWidgets.mainTextButton("Remember me",color: AppColors.blackTextColor,
+                            onPress: () {}),
+                      ],),
+
+                      CommonWidgets.mainTextButton("Forgot Your Password?",
+                          onPress: () {
+                        Navigator.pushReplacement(
+                            context, SlideRightRoute(page: ForgotPasswordScreen()));
+                      }),
+                    ],
+                  )),
               SizedBox(
-                height: sizes!.height * 0.012,
+                height: sizes!.height * 0.02,
               ),
               CommonWidgets.mainButton(
                 "Login",
@@ -96,46 +117,9 @@ class LoginScreen extends StatelessWidget {
                 width: sizes!.width,
                 height: sizes!.height * 0.07,
               ),
-              Row(
-                children: [
-                  Expanded(
-                      child: Divider(
-                    color: AppColors.dividerColor,
-                  )),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: MyText.M(
-                      'Or',
-                      arialFont: true,
-                      color: AppColors.appTheme,
-                      shadow: false,
-                    ),
-                  ),
-                  Expanded(
-                      child: Divider(
-                    color: AppColors.dividerColor,
-                  )),
-                ],
-              ),
-              CommonWidgets.mainButtonWithBorderAndIcon(
-                  'Continue with Google', Assets.googleIcon,
-                  onPress: () {},
-                  color: AppColors.transparentColor,
-                  textColor: AppColors.blackTextColor,
-                  buttonBorderColor: AppColors.textFieldBorderColor),
               SizedBox(
-                height: sizes!.height * 0.02,
+                height: sizes!.height * 0.03,
               ),
-              CommonWidgets.mainButtonWithBorderAndIcon(
-                  'Continue with Facebook', Assets.fbIcon,
-                  onPress: () {},
-                  color: AppColors.transparentColor,
-                  textColor: AppColors.blackTextColor,
-                  buttonBorderColor: AppColors.textFieldBorderColor),
-              SizedBox(
-                height: sizes!.height * 0.05,
-              ),
-              Spacer(),
               DifferentColorClickableText(
                 onColorTextPressed: () {},
                 text: "Don't have an account? ",

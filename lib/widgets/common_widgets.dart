@@ -627,14 +627,14 @@ class CommonWidgets {
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(6)),
-        color: color ?? AppColors.buttonColor,
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        color: color ?? AppColors.appTheme,
         boxShadow: [
           BoxShadow(
-            color: AppColors.shadowColor,
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
+            color: AppColors.appTheme.withOpacity(0.3), // Set the color of the shadow
+            spreadRadius: 1, // Set the spread radius of the shadow
+            blurRadius: 10, // Set the blur radius of the shadow
+            offset: Offset(0, 2), // Set the offset of the shadow
           ),
         ],
       ),
@@ -657,12 +657,12 @@ class CommonWidgets {
       onPressed: () {
         onPress();
       },
-      child: MyText.M(
+      child: MyText.S(
         text,
         shadow: false,
-        color: color ?? AppColors.buttonColor,
+        color: color ?? AppColors.appTheme,
         underline: underline ?? false,
-        arialFont: true,
+        arialFont: false,
       ),
     );
   }
@@ -898,9 +898,11 @@ class CommonWidgets {
     required String hintText,
     @required TextEditingController? controller,
     @required TextInputAction? textInputAction,
+    String ?prefixIconPath,
     required TextInputType keyboardType,
     double? width,
     double? height,
+
   }) {
     return Container(
       height: height ?? 50 * getHeightRatio(),
@@ -923,6 +925,11 @@ class CommonWidgets {
         keyboardType: keyboardType,
         textInputAction: textInputAction ?? TextInputAction.done,
         decoration: InputDecoration(
+          prefixIcon: SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Image.asset(prefixIconPath??Assets.profileIcon),
+              )),
           contentPadding:
               EdgeInsets.only(left: 15, right: 15, top: 13, bottom: 13),
           isDense: true,
@@ -936,7 +943,7 @@ class CommonWidgets {
           border: InputBorder.none,
           hintText: hintText,
           hintStyle: _buildTextStyle(
-              arialFont: true,
+              arialFont: false,
               underline: false,
               color: AppColors.hintTextColor,
               fontSize: MyTextSize.L,
@@ -1032,10 +1039,15 @@ class CommonWidgets {
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Image.asset(Assets.lockIcon),
+          ),
           contentPadding:
               EdgeInsets.only(left: 15, right: 15, top: 13, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
+
             borderSide: BorderSide(
               color: AppColors.textFieldBorderColor,
               width: 1.0,
@@ -1051,10 +1063,11 @@ class CommonWidgets {
                   horizontal: getWidthRatio() * 10,
                   vertical: getHeightRatio() * 5),
               child: showPassword ?? false
-                  ? Icon(Icons.visibility_off,
+                  ?
+              Icon(Icons.remove_red_eye,
                       color: AppColors.buttonBlue, size: sizes!.width * 0.055)
                   : Icon(
-                      Icons.remove_red_eye,
+                      Icons.visibility_off,
                       color: AppColors.lightGrey,
                       size: sizes!.width * 0.055,
                     ),
@@ -1068,7 +1081,7 @@ class CommonWidgets {
             ),
           ),
           hintStyle: _buildTextStyle(
-              arialFont: true,
+              arialFont: false,
               underline: false,
               color: AppColors.hintTextColor,
               fontSize: MyTextSize.L,
@@ -1124,7 +1137,7 @@ class CommonWidgets {
             ),
           ),
           hintStyle: _buildTextStyle(
-              arialFont: true,
+              arialFont: false,
               underline: false,
               color: AppColors.hintTextColor,
               fontSize: MyTextSize.L,
@@ -1495,11 +1508,13 @@ class DifferentColorClickableText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle defaultStyle = _buildTextStyle(
-        arialFont: true,
-        color: AppColors.blackColorText,
+        arialFont: false,
+        color: AppColors.greyTextColor,
+
         fontSize: MyTextSize.M);
     TextStyle linkStyle = _buildTextStyle(
-        color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: true);
+        fontWeight: FontWeight.bold,
+        color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: false);
     return RichText(
       text: TextSpan(
         style: defaultStyle,
@@ -1550,11 +1565,11 @@ class DifferentColorText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle defaultStyle = _buildTextStyle(
-        arialFont: true,
+        arialFont: false,
         color: AppColors.blackColorText,
         fontSize: MyTextSize.M);
     TextStyle linkStyle = _buildTextStyle(
-        color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: true);
+        color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: false);
     return RichText(
       textAlign: textAlign,
       text: TextSpan(

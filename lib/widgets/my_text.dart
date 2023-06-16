@@ -211,7 +211,7 @@ class MyText extends StatelessWidget {
 
   TextStyle _buildTextStyle() {
     Function googleFontBuilder = GoogleFonts.raleway;
-    if (arialFont) googleFontBuilder = GoogleFonts.lato;
+    if (arialFont) googleFontBuilder = GoogleFonts.hind;
 
     return googleFontBuilder(
       color: color,

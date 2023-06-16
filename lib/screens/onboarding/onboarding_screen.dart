@@ -23,36 +23,27 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.08),
+          padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.05),
           height: sizes?.height,
           width: sizes?.width,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(Assets.onboardingBg),
-                      fit: BoxFit.fitWidth
-              )
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Assets.backgroundImage), // Replace with your own image path
+              fit: BoxFit.cover,
+            ),
           ),
           child: Column(
             children: [
               SizedBox(height: sizes!.height*0.02,),
-
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: CommonWidgets.mainTextButton('Skip>', onPress: () {},underline: true)),
-              Spacer(),
-              Image.asset(Assets.appLogo),
+              Image.asset(Assets.getStartedScreenMainImage, fit: BoxFit.cover,height: sizes!.height*0.6, width: sizes!.height*0.6,),
               SizedBox(height: sizes!.height*0.03,),
-              MyText.XXL("Welcome to our store", arialFont:true, shadow: false,color: AppColors.whiteColor,),
+              MyText.XXL("Buy & Sell\nBest Gadgets", arialFont:true, shadow: false,color: AppColors.appTheme,bold: true,),
               SizedBox(height: sizes!.height*0.005,),
-              MyText.M("Get your groceries in as fast as one hour", arialFont:true, shadow: false, color: AppColors.greyTextColor,),
+              MyText.M("Find the Best Deals, Access exclusive deals and add\nactivities to make your travel budget-friendly.", arialFont:true,maxLines: 2, shadow: false, color: AppColors.blackColorGetStartedScreenText,),
               SizedBox(height: sizes!.height*0.04,),
-              CommonWidgets.mainButton("Login", onPress: (){
+              CommonWidgets.mainButton("Get Started", onPress: (){
                 Navigator.pushReplacement(context, SlideRightRoute(page: LoginScreen()));}, width: sizes!.width*0.85, height: sizes!.height*0.07,),
-              SizedBox(height: sizes!.height*0.02,),
-              CommonWidgets.mainButtonWithBorder("Create Account", onPress: (){
-                Navigator.pushReplacement(context, SlideRightRoute(page: const CreateAccountScreen()));
-              }, width: sizes!.width*0.85, height: sizes!.height*0.07,color: AppColors.transparentColor),
-              SizedBox(height: sizes!.height*0.05,),
+              // SizedBox(height: sizes!.height*0.02,),
             ],
           ),
         ),
