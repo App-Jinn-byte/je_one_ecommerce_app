@@ -68,8 +68,9 @@ class ProductDetailScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                CommonWidgets.addToCartLargeButton(onPressAddToCart: (){
-                  showConfirmProductDialog(context,productName: 'Caviar Clere Clarify Shampoo 500ml');
+                CommonWidgets.addToCartLargeButton(onPressAddToCart: () {
+                  showConfirmProductDialog(context,
+                      productName: 'Caviar Clere Clarify Shampoo 500ml');
                 }),
                 SizedBox(
                   height: sizes!.height * 0.035,
@@ -79,19 +80,19 @@ class ProductDetailScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CommonWidgets.productCardWithCartButton(
-                        productName: "Face Mask Product",
-                        productPrice: "25,000 TND",
-                        icon: Assets.productDummyImage01),
-                    CommonWidgets.productCardWithCartButton(
-                        productName: "Face Care Product",
-                        productPrice: "25,000 TND",
-                        icon: Assets.productDummyImage02)
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     CommonWidgets.productCardWithCartButton(
+                //         productName: "Face Mask Product",
+                //         productPrice: "25,000 TND",
+                //         icon: Assets.popularProductDummyImage01),
+                //     CommonWidgets.productCardWithCartButton(
+                //         productName: "Face Care Product",
+                //         productPrice: "25,000 TND",
+                //         icon: Assets.popularProductDummyImage02)
+                //   ],
+                // ),
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
@@ -115,7 +116,8 @@ class ProductDetailScreenView extends StatelessWidget {
       )
     ]);
   }
-  void showConfirmProductDialog(BuildContext context, {String ?productName}) {
+
+  void showConfirmProductDialog(BuildContext context, {String? productName}) {
     showGeneralDialog(
         barrierColor: Colors.black.withOpacity(0.7),
         //SHADOW EFFECT
@@ -136,7 +138,7 @@ class ProductDetailScreenView extends StatelessWidget {
         pageBuilder: (context, animation, animationTime) {
           return CommonWidgets.showCustomDialog(context,
               widgetBody: Container(
-                height: sizes!.height*0.43,
+                height: sizes!.height * 0.43,
                 width: sizes!.width,
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 decoration: BoxDecoration(
@@ -162,11 +164,14 @@ class ProductDetailScreenView extends StatelessWidget {
                         alignment: Alignment.topRight,
                         child: Icon(
                           Icons.close,
-                          color: AppColors.blackTextColor,size: sizes!.height*0.04,
+                          color: AppColors.blackTextColor,
+                          size: sizes!.height * 0.04,
                         ),
                       ),
                     ),
-                    SizedBox(height: sizes!.height*0.019,),
+                    SizedBox(
+                      height: sizes!.height * 0.019,
+                    ),
                     Align(
                         alignment: Alignment.center,
                         child: MyText.XXL(
@@ -177,43 +182,46 @@ class ProductDetailScreenView extends StatelessWidget {
                           bold: true,
                           textAlign: TextAlign.center,
                         )),
-                    SizedBox(height: sizes!.height*0.023,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.023,
+                    ),
                     DifferentColorText(
                       textAlign: TextAlign.center,
                       firstText: "The ",
-                      secondText: productName ?? '' ,
+                      secondText: productName ?? '',
                       thirdText:
-                      ' item has been successfully added to the shopping cart.',
+                          ' item has been successfully added to the shopping cart.',
                     ),
-                    SizedBox(height: sizes!.height*0.02,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.02,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: CommonWidgets.mainButton("Continue My Shopping",
                           onPress: () {
-                            Navigator.push(
-                                context, SlideRightRoute(page: HomeScreenView()));
-                          }),
+                        Navigator.push(
+                            context, SlideRightRoute(page: HomeScreenView()));
+                      }),
                     ),
-                    SizedBox(height: sizes!.height*0.02,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.02,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: CommonWidgets.mainButtonWithBorder("See My Cart",
                           color: AppColors.transparentColor, onPress: () {
-                            Navigator.push(
-                                context, SlideRightRoute(page: CartScreenFirst()));
-                          }),
+                        Navigator.push(
+                            context, SlideRightRoute(page: CartScreenFirst()));
+                      }),
                     ),
-                    SizedBox(height: sizes!.height*0.02,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.02,
+                    ),
                   ],
                 ),
               ));
         });
   }
-
 
   List<String> bannerImages = [
     Assets.offerBannerDummyImage03,

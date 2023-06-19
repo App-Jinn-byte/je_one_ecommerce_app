@@ -17,6 +17,7 @@ import 'package:je_one_ecommerce_app/screens/home_screen_pages/bottom_navigation
 import 'package:je_one_ecommerce_app/screens/home_screen_pages/discounts_product_page/view/discounts_product_page_view.dart';
 import 'package:je_one_ecommerce_app/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
 import 'package:je_one_ecommerce_app/screens/home_screen_pages/home_screen/view/view.dart';
+import 'package:je_one_ecommerce_app/screens/home_screen_pages/home_screen/view/widget/widget.dart';
 import 'package:je_one_ecommerce_app/screens/home_screen_pages/search_screen/view/search_screen_view.dart';
 import 'package:je_one_ecommerce_app/screens/product_detail_screen/view/product_detail_screen_view.dart';
 import 'package:je_one_ecommerce_app/widgets/carousel_slider_widget.dart';
@@ -35,15 +36,15 @@ class HomeScreenView extends StatelessWidget {
       child: Scaffold(
         key: _scaffoldKey,
         drawer: const CustomDrawer(),
-        appBar: CommonWidgets.customAppBar(
-            title: "Home",
-            leadingIcon: Assets.hamburgerIcon,
-            onTapCart: () {
-              Navigator.push(context, SlideRightRoute(page: CartScreenFirst()));
-            },
-            onTapLeadingIcon: () {
-              _scaffoldKey.currentState?.openDrawer();
-            }),
+        // appBar: CommonWidgets.customAppBar(
+        //     title: "Home",
+        //     leadingIcon: Assets.hamburgerIcon,
+        //     onTapCart: () {
+        //       Navigator.push(context, SlideRightRoute(page: CartScreenFirst()));
+        //     },
+        //     onTapLeadingIcon: () {
+        //       _scaffoldKey.currentState?.openDrawer();
+        //     }),
         body: SizedBox(
             width: sizes!.width,
             height: sizes!.height,
@@ -55,22 +56,37 @@ class HomeScreenView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
+                      height: sizes!.heightRatio * 8,
+                    ),
+                    MyText.XXL("Best Smart"),
+                    SizedBox(
+                      height: sizes!.heightRatio * 4,
+                    ),
+                    MyText.XXL(
+                      "Electric Gadgets",
+                      bold: true,
+                      color: AppColors.appTheme,
+                    ),
+                    SizedBox(
                       height: sizes!.height * 0.035,
                     ),
                     CommonWidgets.customSearchTextField(),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 24,
                     ),
-                    const CustomAlertMessageWidget(),
+                    MyText.XL(
+                      "Hot deals",
+                      bold: true,
+                    ),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 16,
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BannerOfferScreenView()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => BannerOfferScreenView()));
                       },
                       child: const CarouselSliderWidget(
                         sliderImages: [
@@ -83,35 +99,65 @@ class HomeScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    categorySelectionList(),
+                    horizontalProductListView(),
+                    // categorySelectionList(),
+                    // SizedBox(
+                    //   height: sizes!.height * 0.035,
+                    // ),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 24,
                     ),
                     CommonWidgets.headingWithViewAllButtonRow(
-                        text: "Feature Category",
+                        text: "Popular Products",
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      CategoriesScreenView()));
+                                      ProductDetailScreenView()));
                         }),
+                    SizedBox(
+                      height: sizes!.heightRatio * 16,
+                    ),
+                    popularProductsList(),
+                    // featureCategoryList(),
+
+                    // FractionallySizedBox(
+                    //   widthFactor: 1.08,
+                    //   child: GestureDetector(
+                    //     onTap: () {
+                    //       // Navigator.push(
+                    //       //     context,
+                    //       //     MaterialPageRoute(
+                    //       //         builder: (context) =>
+                    //       //             BannerOfferScreenView()));
+                    //     },
+                    //     child: Image.asset(
+                    //       Assets.offerBannerDummyImage02,
+                    //       fit: BoxFit.fill,
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    featureCategoryList(),
+                    MyText.XL(
+                      "Top Rated Products",
+                      bold: true,
+                    ),
+
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 16,
                     ),
                     FractionallySizedBox(
                       widthFactor: 1.08,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      BannerOfferScreenView()));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) =>
+                          //             BannerOfferScreenView()));
                         },
                         child: Image.asset(
                           Assets.offerBannerDummyImage02,
@@ -120,123 +166,37 @@ class HomeScreenView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 24,
                     ),
                     CommonWidgets.headingWithViewAllButtonRow(
-                        text: "Sun Care Products",
+                        text: "On Sale Products",
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      CategoriesScreenView()));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) =>
+                          //             CategoriesScreenView()));
                         }),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 16,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CommonWidgets.productCardWithCartButton(
-                            productName: "Face Mask Product",
-                            productPrice: "25,000 TND",
-                            icon: Assets.productDummyImage02,
-                            onViewProduct: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ProductDetailScreenView()));
-                            }),
-                        CommonWidgets.productCardWithCartButton(
-                            productName: "Face Mask Product",
-                            productPrice: "25,000 TND",
-                            icon: Assets.productDummyImage02,
-                            onViewProduct: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ProductDetailScreenView()));
-                            }),
-                      ],
-                    ),
+                    popularProductsList(),
                     SizedBox(
-                      height: sizes!.height * 0.035,
-                    ),
-                    FractionallySizedBox(
-                      widthFactor: 1.08,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      BannerOfferScreenView()));
-                        },
-                        child: Image.asset(
-                          Assets.offerBannerDummyImage,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
+                      height: sizes!.heightRatio * 24,
                     ),
                     CommonWidgets.headingWithViewAllButtonRow(
-                        text: "Health Care Products",
+                        text: "Popular Products",
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      CategoriesScreenView()));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) =>
+                          //             CategoriesScreenView()));
                         }),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 16,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CommonWidgets.productCardWithCartButton(
-                            productName: "Face Mask Product",
-                            productPrice: "25,000 TND",
-                            icon: Assets.productDummyImage02),
-                        CommonWidgets.productCardWithCartButton(
-                            productName: "Face Mask Product",
-                            productPrice: "25,000 TND",
-                            icon: Assets.productDummyImage02),
-                      ],
-                    ),
-                    SizedBox(
-                      height: sizes!.height * 0.035,
-                    ),
-                    FractionallySizedBox(
-                      widthFactor: 1.08,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      ProductDetailScreenView()));
-                        },
-                        child: Image.asset(
-                          Assets.offerBannerDummyImage,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: sizes!.height * 0.035,
-                    ),
-                    MyText.XL(
-                      "Brand Logo",
-                      shadow: false,
-                      color: AppColors.blackColor,
-                      bold: true,
-                    ),
-                    SizedBox(
-                      height: sizes!.height * 0.035,
-                    ),
-                    brandLogosList()
+                    popularProductsList(),
                   ],
                 ),
               ),
@@ -270,13 +230,42 @@ class HomeScreenView extends StatelessWidget {
     );
   }
 
+  Widget popularProductsList() {
+    return SizedBox(
+      height: sizes!.heightRatio * 260.0,
+      width: double.infinity,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 3,
+          itemBuilder: (
+            BuildContext context,
+            int index,
+          ) {
+            return CommonWidgets.productCardWithCartButton(
+                productName: popularProductsListText[index],
+                productPrice: " \$50",
+                icon: popularProductsImages[index],
+                productSerialNum: "E5630....");
+          }),
+    );
+  }
+
+  var popularProductsListText = [
+    "Samsung Galaxy ",
+    "Macbook Pro 2023",
+    "Samsung Galaxy ",
+  ];
+  var popularProductsImages = [
+    Assets.popularProductDummyImage01,
+    Assets.popularProductDummyImage02,
+    Assets.popularProductDummyImage01,
+  ];
+
   var featureCategoryListText = [
-    "Aromathrapy",
-    "Beauty Care ",
-    "Baby Care",
-    "Hair Care",
-    "Face Mask",
-    "Face Care"
+    "Watch",
+    "Ear Pods ",
+    "Mobile",
+    "Watch",
   ];
 
   var featureCategoryIconsList = [
@@ -288,61 +277,77 @@ class HomeScreenView extends StatelessWidget {
     Assets.featureCategoryImg02,
   ];
 
-  var brandLogoIconsList = [
-    Assets.brandLogoDummyIcon01,
-    Assets.brandLogoDummyIcon02,
-    Assets.brandLogoDummyIcon03,
-    Assets.brandLogoDummyIcon04,
+  var productIconsList = [
+    Assets.productDummyIcon01,
+    Assets.productDummyIcon02,
+    Assets.productDummyIcon03,
+    Assets.productDummyIcon01,
   ];
 
-  Widget brandLogosList() {
+  Widget horizontalProductListView() {
     return SizedBox(
-      height: sizes!.heightRatio * 100.0,
+      height: sizes!.heightRatio * 70.0,
       width: double.infinity,
       child: ListView.builder(
-          itemCount: brandLogoIconsList.length,
+          itemCount: productIconsList.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => BrandProductsScreenView()));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (_) => BrandProductsScreenView()));
               },
-              child: brandIconContainer(
-                  image: brandLogoIconsList[index],
+              child: iconTextContainer(
+                  image: productIconsList[index],
                   text: featureCategoryListText[index]),
             );
           }),
     );
   }
 
-  Widget brandIconContainer({required image, required text}) {
-    return Column(
-      children: [
-        Container(
-            height: sizes!.heightRatio * 70,
-            width: sizes!.widthRatio * 70,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.shadowColor,
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 1), // changes position of shadow
-                ),
-              ],
+  Widget iconTextContainer({
+    required image,
+    required text,
+  }) {
+    return Container(
+      // height: sizes!.heightRatio * 60,
+      width: sizes!.widthRatio * 82,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
+      ),
+      margin: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 10),
+      padding: EdgeInsets.only(right: sizes!.widthRatio * 2),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            width: sizes!.widthRatio * 43,
+            height: sizes!.heightRatio * 41,
+            // color: Colors.green,
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover,
             ),
-            margin: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 10),
-            padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 10),
-            // decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(4),
-            //     border: Border.all(color: AppColors.lightGreyColor, width: 2)),
-            child: Image.asset(image)),
-      ],
+          ),
+          Expanded(
+            child: MyText.XS(
+              text,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -358,10 +363,10 @@ class HomeScreenView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 2),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CategoryInternalScreenView()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => CategoryInternalScreenView()));
                 },
                 child: featureCategoryContainer(
                     image: featureCategoryIconsList[index],

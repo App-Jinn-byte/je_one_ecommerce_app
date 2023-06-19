@@ -10,7 +10,6 @@ import 'package:je_one_ecommerce_app/res/colors.dart';
 import 'package:je_one_ecommerce_app/res/res.dart';
 import 'package:je_one_ecommerce_app/widgets/my_text.dart';
 
-
 class CommonWidgets {
   static PreferredSize customAppBar({
     required String title,
@@ -94,7 +93,7 @@ class CommonWidgets {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        MyText.XL(
+        MyText.L(
           text,
           shadow: false,
           color: AppColors.blackColor,
@@ -104,12 +103,11 @@ class CommonWidgets {
           onTap: () {
             onTap();
           },
-          child: MyText.XL(
-            "View All",
+          child: MyText.L(
+            "See All",
             shadow: false,
             color: AppColors.appTheme,
-            bold: false,
-            underline: true,
+            bold: true,
           ),
         ),
       ],
@@ -119,14 +117,28 @@ class CommonWidgets {
   static Widget productCardWithCartButton(
       {required String productName,
       required productPrice,
+      required productSerialNum,
       required var icon,
       Function? onViewProduct}) {
     return Container(
-      width: sizes!.widthRatio * 155,
+      width: sizes!.widthRatio * 170,
+      // height: sizes!.heightRatio * 250.0,
       padding: EdgeInsets.only(bottom: sizes!.heightRatio * 9),
+      margin: EdgeInsets.symmetric(
+          horizontal: sizes!.widthRatio * 12,
+          vertical: sizes!.heightRatio * 15),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(width: 1.5, color: AppColors.greyBorderColor),
+        borderRadius: BorderRadius.circular(12),
+        color: AppColors.whiteColor,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
+        // border: Border.all(width: 1.5, color: AppColors.greyBorderColor),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +149,7 @@ class CommonWidgets {
                 icon,
                 height: sizes!.heightRatio * 123,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
               Positioned(
                 top: sizes!.heightRatio * 5,
@@ -146,9 +158,10 @@ class CommonWidgets {
                   padding: EdgeInsets.all(sizes!.heightRatio * 3),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: AppColors.backgroundGreenColor,
+                    color: AppColors.backgroundGreyColor,
                   ),
-                  child: const Icon(Icons.favorite_border, color: Colors.white),
+                  child: Icon(Icons.favorite_border,
+                      color: AppColors.heartGreyColor),
                 ),
               ),
             ],
@@ -157,49 +170,63 @@ class CommonWidgets {
             padding: EdgeInsets.symmetric(
                 vertical: sizes!.heightRatio * 8,
                 horizontal: sizes!.widthRatio * 14),
-            child: MyText.M(
+            child: MyText.XL(
               productName,
-              bold: true,
               maxLines: 1,
-              color: AppColors.appTheme,
             ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 14),
             child: MyText.S(
-              productPrice,
-              bold: true,
+              productSerialNum,
+              color: AppColors.greyColor,
             ),
           ),
           SizedBox(height: sizes!.heightRatio * 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              addToCartButton(),
-              Container(
-                height: sizes!.heightRatio * 29,
-                width: sizes!.widthRatio * 29,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(
-                    color: AppColors.greyBorderColor,
-                    width: 1.2,
-                  ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MyText.XL(
+                  "\$50",
+                  bold: true,
+                  color: AppColors.appTheme,
                 ),
-                child: IconButton(
-                  onPressed: () {
-                    if (onViewProduct != null) {
-                      onViewProduct();
-                    }
-                  },
-                  icon: Icon(
-                    Icons.remove_red_eye_outlined,
-                    color: AppColors.darkGreyColor,
-                    size: sizes!.heightRatio * 13,
+                Container(
+                  height: sizes!.heightRatio * 29,
+                  width: sizes!.widthRatio * 29,
+                  decoration: BoxDecoration(
+                    color: AppColors.appTheme,
+                    borderRadius: BorderRadius.circular(12),
+                    // border: Border.all(
+                    //   color: AppColors.greyBorderColor,
+                    //   width: 1.2,
+                    // ),
                   ),
-                ),
-              )
-            ],
+                  child: IconButton(
+                    onPressed: () {
+                      if (onViewProduct != null) {
+                        onViewProduct();
+                      }
+                    },
+                    icon: Image.asset(
+                      Assets
+                          .cartWheelIcon, // Replace with your image asset path
+                      color: AppColors.whiteColor,
+                      height: sizes!.heightRatio * 23,
+                      width: sizes!.widthRatio * 23,
+                    ),
+
+                    // Icon(
+                    //   Icons.shopping_cart,
+                    //   color: AppColors.whiteColor,
+                    //   size: sizes!.heightRatio * 13,
+                    // ),
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
@@ -348,7 +375,7 @@ class CommonWidgets {
     );
   }
 
-  static Widget addToCartLargeButton({Function ?onPressAddToCart}) {
+  static Widget addToCartLargeButton({Function? onPressAddToCart}) {
     return Container(
       height: sizes!.heightRatio * 50,
       width: double.infinity,
@@ -430,10 +457,9 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget showCustomDialog(
-      BuildContext context, {
-        required Widget widgetBody
-      }) {
+
+  static Widget showCustomDialog(BuildContext context,
+      {required Widget widgetBody}) {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 0.3, sigmaY: 0.3),
       child: GestureDetector(
@@ -441,13 +467,10 @@ class CommonWidgets {
           Navigator.pop(context);
         },
         child: Dialog(
-
           // surfaceTintColor: AppColors.darkGreyColor,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side:  BorderSide(
-                  color: AppColors.transparentColor,
-                  width: 0.5)),
+              side: BorderSide(color: AppColors.transparentColor, width: 0.5)),
           // backgroundColor: AppColors.dialogWhiteColor,
           child: widgetBody,
         ),
@@ -459,13 +482,17 @@ class CommonWidgets {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
+        border: Border.all(
+          color: AppColors.hintTextColor, // set the color of the border
+          width: 0.5, // set the width of the border
+        ),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: AppColors.shadowColor,
             spreadRadius: 2,
             blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
+            offset: const Offset(0, 1), // changes position of shadow
           ),
         ],
       ),
@@ -476,11 +503,17 @@ class CommonWidgets {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: sizes!.heightRatio * 6),
-            child: Image.asset(
-              Assets.searchIconUnselected,
+            child: Icon(
+              Icons.search,
               color: Colors.grey,
-              height: sizes!.heightRatio * 18,
+              size: sizes!.heightRatio * 18,
             ),
+
+            // Image.asset(
+            //   Assets.searchIconUnselected,
+            //   color: Colors.grey,
+            //   height: sizes!.heightRatio * 18,
+            // ),
           ),
           SizedBox(
             width: sizes!.width * 0.01,
@@ -488,7 +521,7 @@ class CommonWidgets {
           Expanded(
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search Product',
+                hintText: 'What do you want?',
                 hintStyle: TextStyle(
                   color:
                       AppColors.hintTextColor, // set the color of the hint text
@@ -1538,10 +1571,15 @@ class DifferentColorClickableText extends StatelessWidget {
     );
   }
 }
+
 class DifferentColorText extends StatelessWidget {
-  const DifferentColorText(
-      {Key? key, required this.firstText, required this.secondText, required this.thirdText, required this.textAlign,})
-      : super(key: key);
+  const DifferentColorText({
+    Key? key,
+    required this.firstText,
+    required this.secondText,
+    required this.thirdText,
+    required this.textAlign,
+  }) : super(key: key);
   final String firstText;
   final String secondText;
   final String thirdText;
@@ -1569,7 +1607,6 @@ class DifferentColorText extends StatelessWidget {
                   print('Terms of Service"');
                 }),
           TextSpan(text: thirdText),
-
         ],
       ),
     );

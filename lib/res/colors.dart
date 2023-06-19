@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
 Map<int, Color> colorCodes = {
-  50: Color.fromRGBO(147, 205, 72, .1),
-  100: Color.fromRGBO(147, 205, 72, .2),
-  200: Color.fromRGBO(147, 205, 72, .3),
-  300: Color.fromRGBO(147, 205, 72, .4),
-  400: Color.fromRGBO(147, 205, 72, .5),
-  500: Color.fromRGBO(147, 205, 72, .6),
-  600: Color.fromRGBO(147, 205, 72, .7),
-  700: Color.fromRGBO(147, 205, 72, .8),
-  800: Color.fromRGBO(147, 205, 72, .9),
-  900: Color.fromRGBO(147, 205, 72, 1),
+  50: const Color.fromRGBO(147, 205, 72, .1),
+  100: const Color.fromRGBO(147, 205, 72, .2),
+  200: const Color.fromRGBO(147, 205, 72, .3),
+  300: const Color.fromRGBO(147, 205, 72, .4),
+  400: const Color.fromRGBO(147, 205, 72, .5),
+  500: const Color.fromRGBO(147, 205, 72, .6),
+  600: const Color.fromRGBO(147, 205, 72, .7),
+  700: const Color.fromRGBO(147, 205, 72, .8),
+  800: const Color.fromRGBO(147, 205, 72, .9),
+  900: const Color.fromRGBO(147, 205, 72, 1),
 };
 
 class AppColors {
-  static final appTheme = Color.fromRGBO(120, 149, 64, 1);
+  static const appTheme = Color.fromRGBO(0, 122, 255, 1);
+  static const fadedBlue = Color.fromRGBO(0, 122, 255, 0.24);
   static final appBackground = Color.fromRGBO(252, 252, 252, 1);
   static final dividerColor = Color.fromRGBO(203, 203, 203, 1);
   static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
@@ -22,11 +23,12 @@ class AppColors {
   static final hintTextColor = Color.fromRGBO(181, 181, 181, 1);
   static final lightGreyColor = Color.fromRGBO(245, 245, 245, 1);
   static final darkGreyColor = Color.fromRGBO(124, 124, 124, 1);
+  static final heartGreyColor = Color.fromRGBO(152, 152, 152, 1);
   static final greyBorderColor = Color.fromRGBO(226, 226, 226, 1);
-  static final backgroundGreenColor = Color.fromRGBO(120, 149, 64, 0.32);
+  static final backgroundGreyColor = Color.fromRGBO(246, 246, 246, 1);
   static final buttonBlue = Color.fromRGBO(0, 178, 255, 1);
   static final logoutRedButtonColor = Color.fromRGBO(137, 22, 22, 1);
-  static final lightBlue = Color.fromRGBO(0, 178, 255, 1);
+
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static final dialogWhiteColor = Color.fromRGBO(250, 250, 250, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);

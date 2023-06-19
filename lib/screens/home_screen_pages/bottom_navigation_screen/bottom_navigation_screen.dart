@@ -85,7 +85,6 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
             icon: ImageIcon(AssetImage(Assets.accountIconUnselected)),
             label: 'Account',
             activeIcon: ImageIcon(AssetImage(Assets.accountIconSelected)),
-
           ),
         ],
       ),
@@ -95,7 +94,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           HomeScreenView(),
           SearchScreenView(),
           BlogsScreenView(),
-          DiscountsProductPageView(),
+          // DiscountsProductPageView(),
           AccountScreenView()
         ],
       ),

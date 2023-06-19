@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:je_one_ecommerce_app/providers/multi_provider.dart';
 import 'package:je_one_ecommerce_app/screens/AuthScreens/login_screen/login.dart';
 import 'package:je_one_ecommerce_app/screens/onboarding/onboarding_screen.dart';
+import 'package:je_one_ecommerce_app/screens/splash.dart';
 import 'package:provider/provider.dart';
-
 
 late double myFontRatio;
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         providers: multiProviders,
         child: const MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LoginScreen(),
-            title: 'Parapharm'));
+            home: Splash(),
+            title: 'Je One'));
   }
 }

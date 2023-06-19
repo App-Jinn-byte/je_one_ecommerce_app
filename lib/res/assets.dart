@@ -1,4 +1,4 @@
-  class Assets {
+class Assets {
   static const String splashLogoWhite = "assets/png/splashLogoWhite.png";
 
   // fonts
@@ -23,16 +23,18 @@
 
   // images
   static const String onboardingBg = "assets/images/onboarding_bg.png";
-  static const String onboardingBg = "assets/images/onboarding_bg.png";
   static const String splash1Image = "assets/png/logo_splash1.png";
 
   // icons
-  static const String appLogo = "assets/images/logo.png";
+  static const String appLogo = "assets/icon/app_logo.png";
+  static const String cartWheelIcon = "assets/icon/cart_wheel.png";
+
   static const String appColorLogo = "assets/images/color_logo.png";
   static const String googleIcon = "assets/images/google_icon.png";
   static const String fbIcon = "assets/images/fb_icon.png";
   static const String checkMark = "assets/images/check_mark.png";
-  static const String sampleProductImage = "assets/images/sample_product_image.png";
+  static const String sampleProductImage =
+      "assets/images/sample_product_image.png";
   static const String minus = "assets/images/minus.png";
   static const String plus = "assets/images/plus.png";
   static const String cross = "assets/images/cross.png";
@@ -50,14 +52,16 @@
       "assets/images/search_unseletcted_icon.png";
   static const String searchIconSelected =
       "assets/images/search_selected_icon.png";
-  static const String discountIconUnselected = "assets/images/discount_unselected_icon.png";
+  static const String discountIconUnselected =
+      "assets/images/discount_unselected_icon.png";
   static const String discountIconSelected =
       "assets/images/discount_selected_icon.png";
   static const String accountIconSelected =
       "assets/images/account_selected_icon.png";
   static const String accountIconUnselected =
       "assets/images/account_unselected_icon.png";
-  static const String blogIconUnSelected = "assets/images/blog_unselected_icon.png";
+  static const String blogIconUnSelected =
+      "assets/images/blog_unselected_icon.png";
   static const String blogIconSelected = "assets/images/blog_selected_icon.png";
   static const String hamburgerIcon = "assets/images/hamburger_icon.png";
   static const String cartIcon = "assets/images/cart_icon.png";
@@ -80,18 +84,16 @@
       "assets/images/banner_dummy_02.png";
   static const String offerBannerDummyImage03 =
       "assets/images/banner_dummy_03.png";
-  static const String productDummyImage01 =
-      "assets/images/product_dummy_img_01.png";
-  static const String productDummyImage02 =
-      "assets/images/product_dummy_img_02.png";
-  static const String brandLogoDummyIcon01 =
+  static const String popularProductDummyImage01 =
+      "assets/images/popular_produtcs_dummy.png";
+  static const String popularProductDummyImage02 =
+      "assets/images/popular_produtcs_dummy_02.png";
+  static const String productDummyIcon01 = "assets/images/gadget_icon.png";
+  static const String productDummyIcon02 = "assets/images/gadget_icon_02.png";
+  static const String productDummyIcon03 = "assets/images/gadget_icon_03.png";
+  static const String productDummyIcon04 =
       "assets/images/brand_logo_icons_dummy_01.png";
-  static const String brandLogoDummyIcon02 =
-      "assets/images/brand_logo_icons_dummy_02.png";
-  static const String brandLogoDummyIcon03 =
-      "assets/images/brand_logo_icons_dummy_03.png";
-  static const String brandLogoDummyIcon04 =
-      "assets/images/brand_logo_icons_dummy_04.png";
+
   static const String categoryDummyImg01 =
       "assets/images/category_dummy_img_01.png";
   static const String categoryDummyImg02 =

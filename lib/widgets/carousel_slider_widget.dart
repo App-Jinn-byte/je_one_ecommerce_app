@@ -76,7 +76,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
       activeIndex: activeIndex,
       count: widget.sliderImages.length,
       effect: ExpandingDotsEffect(
-        dotColor: AppColors.lightGrey,
+        dotColor: AppColors.fadedBlue,
         dotHeight: 6,
         dotWidth: 6,
         activeDotColor: AppColors.appTheme,

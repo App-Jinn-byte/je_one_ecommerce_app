@@ -11,7 +11,6 @@ import 'package:je_one_ecommerce_app/screens/wish_list_screen/view/wishlist_scre
 import 'package:je_one_ecommerce_app/widgets/common_widgets.dart';
 import 'package:provider/provider.dart';
 
-
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
@@ -75,14 +74,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     MaterialPageRoute(
                         builder: (_) => OrderHistoryScreenView()));
               }),
-          customDrawerComponents.menuItem(
-              title: 'My wishlist',
-              selected: customDrawerProvider.index == 3,
-              onPress: () {
-                updateIndex(3);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => WishListScreenView()));
-              }),
+          // customDrawerComponents.menuItem(
+          //     title: 'My wishlist',
+          //     selected: customDrawerProvider.index == 3,
+          //     onPress: () {
+          //       updateIndex(3);
+          //       Navigator.push(context,
+          //           MaterialPageRoute(builder: (_) => WishListScreenView()));
+          //     }),
           customDrawerComponents.menuItem(
               title: 'My Bookmarks',
               selected: customDrawerProvider.index == 4,

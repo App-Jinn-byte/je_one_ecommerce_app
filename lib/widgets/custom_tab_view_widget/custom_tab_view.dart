@@ -96,11 +96,11 @@ class CustomTabView extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   return CommonWidgets.blogItemCard(
                                       readMoreTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BlogDetailsScreenView()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             BlogDetailsScreenView()));
                                       },
                                       categoryName: productNames[index],
                                       icon: productDummyImages[index]);
@@ -134,11 +134,11 @@ class CustomTabView extends StatelessWidget {
                               itemBuilder: (BuildContext context, int index) {
                                 return CommonWidgets.blogItemCard(
                                     readMoreTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  BlogDetailsScreenView()));
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             BlogDetailsScreenView()));
                                     },
                                     categoryName: productNames[index],
                                     icon: productDummyImages[index]);
